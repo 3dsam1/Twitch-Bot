@@ -1,0 +1,17 @@
+{
+  "name": "twitch-bot",
+  "version": "0.9.1",
+  "description": "A discord bot build for EdgeGamers Orginization. Uses twitch API to fetch any live users and send a embed with stream information. It will then edit the embed after the stream has ended stating so. There are potential plans to implement youtube livestreams in the future.",
+  "main": "main.js",
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3",
+    "mongoose": "^6.10.0",
+    "path": "^0.12.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "3dsam1",
+  "license": "ISC"
+}
