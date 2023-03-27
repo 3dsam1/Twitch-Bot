@@ -21,7 +21,7 @@ Please use the rest of this readme as documentation outlining the features we ar
 - Optional:
   - Have each streamer tie their twitch/youtube stream to their discord ID, and give them a given role (discord role id) when they are live (subsequently take it away when they stop being live) 
   - Accept multiple channel ids so we can support multiple guilds at once (don't think you'll need to work with sharding) - Done
-  - Pull individual streamer profiles (profile picture, etc) to make the embeds look more customized.- In progress
+  - Pull individual streamer profiles (profile picture, etc) to make the embeds look more customized.- Done
   - After x amount of time (should be async) remove the embed after the stream is no longer live. 
 
 
@@ -36,23 +36,29 @@ Once you have gotten some grounds into development you should update the below s
 
 Discord Secrets:
 
-`d_token` The discord bot token.
+`D_TOKEN` The discord bot token.
 
-`d_clientId` The discord bot's client ID.
+`D_CLIENT_ID` The discord bot's client ID.
 
-`d_logChannelId` The ID of the Discord Channel in which logs will be sent. Used for error logging.
+`D_LOG_CHANNEL` The ID of the Discord Channel in which logs will be sent. Used for error logging.
+
+`D_ADMIN_ROLE_ID` The ID of the admin role to intialiaze the bot with. Leave blank to intialize with the /init command.
 
 Twitch Secrets:
 
-`t_clientId` The twitch developer application client id.
+`T_CLIENT_ID` The twitch developer application client id.
 
-`t_clientSecret` The twitch developer application client secret
+`T_CLIENT_SECRET` The twitch developer application client secret
 
-`t_accessToken` The twitch API access token. Obtained from a call to Twitch API. Must be renewed roughly every month.
+`T_ACCESS_TOKEN` The twitch API access token. Obtained from a call to Twitch API. Must be renewed roughly every month.
 
 Database Secrets: 
 
-`databaseToken` The connection token provided by the database. Note, this project uses MongoDB.
+`MONGO_INITDB_DATABASE` The name you wish to use for the Database.
+
+`MONGO_INITDB_ROOT_USERNAME` The username for the root access user. 
+
+`MONGO_INITDB_ROOT_PASSWORD` The password for the root access user.
 
 ## API References
 
@@ -103,7 +109,7 @@ Add the ID of the channel in which you wish to use for logging in the .env file.
 
 Create a new Twitch Developer Application, and use the tokens below as needed.
 
-Copy the following curl command, replacing the client_id and client_secret areas with the proper tokens from the Twitch Developer Application.
+Copy the following CURL command, replacing the client_id and client_secret areas with the proper tokens from the Twitch Developer Application.
 
 (Note, this is for linux. Ensure that it is changed for the proper OS.)
 
@@ -116,7 +122,6 @@ curl -X POST 'https://id.twitch.tv/oauth2/token' \
 
 Now, using the access token provided, along with the client ID and client Secret, input them into the .env file.
 
-This project uses MongoDB. You will need to create an initial database, and then copy the connection URL provided by MongoDB and paste it into the databaseToken env variable.
 
 Run the following commands using docker:
 
